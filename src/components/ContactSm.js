@@ -1,16 +1,16 @@
 import React from "react";
 
-export default function ContactSm() {
+export default function ContactSm(props) {
   return (
-    <div className="contact__small">
+    <div className="contact__small" onClick={props.handleClick}>
       <img
         className="contact__image__small"
-        src="https://randomuser.me/api/portraits/thumb/women/62.jpg"
-        alt=""
+        src={props.data.thumbnail}
+        alt={`${props.data.fname} ${props.data.lname}`}
       />
-      <span className="firstName__small">Britney</span>
-      <span className="lastName__small">Sims</span>
-      <span className="phone__small">081-136-4597</span>
+      <span className="firstName__small">{props.data.fname}</span>
+      <span className="lastName__small">{props.data.lname}</span>
+      <span className="phone__small">{props.data.mobile}</span>
     </div>
   );
 }
