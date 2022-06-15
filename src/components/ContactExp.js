@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function ContactExp(props) {
+  const [showAge, setShowAge] = useState(false);
+
   return (
     <div className="contact__expanded">
       <img
@@ -14,7 +16,9 @@ export default function ContactExp(props) {
       </div>
       <div className="contact__info expanded__margin">
         <span className="title">Title: {props.data.title}</span>
-        <span className="age">Age: {props.data.age}</span>
+        <span className="age" onClick={() => setShowAge((prevAge) => !prevAge)}>
+          Age: {showAge ? props.data.age : "hidden"}{" "}
+        </span>
       </div>
       <span className="contact__email expanded__margin">
         Email: {props.data.email}
