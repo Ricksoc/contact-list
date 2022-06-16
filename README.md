@@ -1,6 +1,8 @@
 # Mobile Contacts List
 
-![](./screenshot.png)
+<p align="center">
+  <img src="./screenshot.png" />
+</p>
 
 The idea fo this project was for a project which used the React and css skills I already possessed to reinforce them and to practice quickly coding an app.
 
