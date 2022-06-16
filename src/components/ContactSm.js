@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 
 export default function ContactSm(props) {
+  // Ref used to centre component on screen when clicked
   const contactRef = useRef();
   return (
     <div

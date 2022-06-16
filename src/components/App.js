@@ -6,7 +6,6 @@ import ContactExp from "./ContactExp";
 export default function App() {
   const [contactList, setContactList] = useState([]);
 
-  // Ref used to center component when clicked
   useEffect(() => {
     async function getContacts() {
       const response = await fetch(
@@ -27,6 +26,7 @@ export default function App() {
             age: item.dob.age,
             thumbnail: item.picture.thumbnail,
             picture: item.picture.large,
+            // First contact is set as expanded
             expanded: index === 0 ? true : false,
           };
         })

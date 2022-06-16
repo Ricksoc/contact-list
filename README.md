@@ -1,70 +1,22 @@
-# Getting Started with Create React App
+# Mobile Contacts List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![](./screenshot.png)
 
-## Available Scripts
+The idea fo this project was for a project which used the React and css skills I already possessed to reinforce them and to practice quickly coding an app.
 
-In the project directory, you can run:
+## What I Did
+The app makes an API call to randomuser.me inside of a useEffect Hook. The returned contactlist is mapped into a state object, taking the data needed for the app.
 
-### `npm start`
+The app is based around two components. A single contact is shown expanded with a higher level of detail while the remaining contacts show only a thumbnail, name and mobile number. If clicked on a condensed contact will become the expanded contact and centre on the screen via the expandContact function.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The age of an expanded contact initially shows as "hidden" but can be revealed with a click.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## What I Learned 
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+In order to centre a clicked contact on screen I had to search and found the solution to be the useRef Hook. Each ContactSm component produces a contactRef which is passed to the expandContact function which contains the code:
+```
+    ref.current.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+```
+that centres the clicked contact on screen as well as expanding it.
