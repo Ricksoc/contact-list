@@ -20,8 +20,8 @@ export default function ContactExp(props) {
           Age: {showAge ? props.data.age : "hidden"}{" "}
         </span>
       </div>
-      <span className="contact__email expanded__margin">
-        Email: {props.data.email}
+      <span className="expanded__margin">
+        Email: <span className="contact__email"> {props.data.email}</span>
       </span>
       <span className="conact__phone expanded__margin">
         Mobile: {props.data.mobile}

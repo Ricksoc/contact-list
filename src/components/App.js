@@ -6,6 +6,7 @@ import ContactExp from "./ContactExp";
 export default function App() {
   const [contactList, setContactList] = useState([]);
 
+  // Ref used to center component when clicked
   useEffect(() => {
     async function getContacts() {
       const response = await fetch(
@@ -34,19 +35,27 @@ export default function App() {
     getContacts();
   }, []);
 
-  function expandContact(id) {
-    console.log(`Clicked ${id}`);
+  function expandContact(id, ref) {
+    // Sets expanded contact to be the last one clicked
+    // and scrolls page to centre that contact using its ref
+    setContactList((prevContacts) => {
+      return prevContacts.map((contact) => {
+        return contact.id === id
+          ? { ...contact, expanded: true }
+          : { ...contact, expanded: false };
+      });
+    });
+    ref.current.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
   }
 
   const contacts = contactList.map((contact) => {
     return contact.expanded ? (
       <ContactExp key={contact.key} data={contact} />
     ) : (
-      <ContactSm
-        key={contact.key}
-        data={contact}
-        handleClick={() => expandContact(contact.id)}
-      />
+      <ContactSm key={contact.key} data={contact} handleClick={expandContact} />
     );
   });
 

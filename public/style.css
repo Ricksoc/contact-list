@@ -77,6 +77,10 @@ main {
   width: 90px;
 }
 
+.contact__email {
+  font-size: 0.75rem;
+}
+
 .contact__small {
   display: flex;
   width: 100%;

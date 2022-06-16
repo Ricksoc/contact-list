@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 
 export default function ContactSm(props) {
+  const contactRef = useRef();
   return (
-    <div className="contact__small" onClick={props.handleClick}>
+    <div
+      ref={contactRef}
+      className="contact__small"
+      onClick={() => props.handleClick(props.data.id, contactRef)}
+    >
       <img
         className="contact__image__small"
         src={props.data.thumbnail}
